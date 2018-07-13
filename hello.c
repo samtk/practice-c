@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ncurses.h>
 
 #define USERSIZE 10
 
@@ -30,14 +31,10 @@ char *loadMap(char *map_file_name)
    int index = 0;
    while((ch = fgetc(fp)) != EOF)
    {
-      //printf("%c",ch);
       size += sizeof(char);
       map = realloc(map,size); 
       map[index] = ch;
       index++;
-      //map[count] = ch;
-      //count++;
-      //map++;
    }
 
    
@@ -53,6 +50,7 @@ void drawMap()
 
 int main()
 {
+   /*	
    char map_file_name[] = "maps/startArea";
 
    readCommand();
@@ -63,7 +61,15 @@ int main()
    {
        printf("%C",map[i]);
    }
+   */
 
+   initscr();
+   printw("Hello world");
+   printw("gosh");
+   move(50,50);
+   refresh();
+   getch();
+   endwin();
    return 0;
 }
 
